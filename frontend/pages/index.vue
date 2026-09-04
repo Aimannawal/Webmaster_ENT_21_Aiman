@@ -10,6 +10,6 @@ try {
 } catch {
 	items = []
 }
-const featured = items.slice(0, 3)
+const featured = items.slice(0, 5)
 const latest = items.slice(0, 6)
 </script>

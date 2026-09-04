@@ -8,6 +8,7 @@
 			<div class="nav-links" :class="{ 'nav-links-open': isOpen }">
 				<NuxtLink to="/berita" @click="isOpen = false">Berita</NuxtLink>
 				<NuxtLink v-for="item in primaryCategories" :key="item.slug" :to="`/kategori/${item.slug}`" @click="isOpen = false">{{ item.nama }}</NuxtLink>
+				<NuxtLink class="mobile-dashboard-link" to="/admin" @click="isOpen = false">Dashboard <Icon name="heroicons:arrow-up-right" /></NuxtLink>
 			</div>
 			<NuxtLink class="btn btn-dark nav-dashboard" to="/admin">Dashboard <Icon name="heroicons:arrow-up-right" /></NuxtLink>
 		</nav>
