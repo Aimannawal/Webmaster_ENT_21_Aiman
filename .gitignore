@@ -1,0 +1,28 @@
+# Dependencies
+**/node_modules/
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# Nuxt / Vite build output
+frontend/.nuxt/
+frontend/.output/
+frontend/.nitro/
+frontend/.data/
+frontend/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime uploads
+backend/public/uploads/*
+!backend/public/uploads/.gitkeep
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

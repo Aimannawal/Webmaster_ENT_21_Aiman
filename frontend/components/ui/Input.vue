@@ -1,0 +1,1 @@
+<template><div class="field"><label v-if="label">{{ label }}</label><input v-bind="$attrs" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"></div></template><script setup>defineProps({ modelValue: String, label: String }); defineEmits(['update:modelValue'])</script>

@@ -1,0 +1,1 @@
+<template><button class="btn" :class="`btn-${variant}`" :type="type"><Icon v-if="icon" :name="icon" /> <slot /></button></template><script setup>defineProps({ variant: { default: 'primary' }, icon: String, type: { default: 'button' } })</script>

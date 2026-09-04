@@ -1,0 +1,1 @@
+<template><div v-if="totalPages > 1" class="pagination"><button v-for="page in totalPages" :key="page" class="page-number" :class="{ active: page === current }" @click="$emit('change', page)">{{ page }}</button></div></template><script setup>defineProps({ current: Number, totalPages: Number }); defineEmits(['change'])</script>
