@@ -187,3 +187,37 @@ git push -u origin main
 ```
 
 Pastikan file `.env` tidak ikut ter-push. Yang boleh masuk repository hanya `.env.example`.
+
+## Arsitektur dan Teknologi
+
+Project ini dibuat oleh **Aiman Wafi'i An Nawal** untuk **Divisi Webmaster, Teknik Informatika**.
+
+### Backend
+
+Backend menggunakan **Express** dengan arsitektur **MVC manual**:
+
+- `routes/` menerima request API dan meneruskan ke controller.
+- `controllers/` menangani validasi, autentikasi, upload, dan format response.
+- `models/` menjalankan raw SQL menggunakan `mysql2/promise`.
+- `middlewares/` menangani JWT auth dan upload thumbnail dengan Multer.
+- `config/db.js` menyediakan connection pool MySQL.
+
+Pengujian endpoint dapat dilakukan dengan **Bruno** menggunakan API yang berjalan di `http://localhost:3000`.
+
+### Frontend
+
+Frontend menggunakan **Nuxt** sebagai framework berbasis Vue dan ditulis dengan TypeScript:
+
+- **Axios** digunakan sebagai client untuk request ke REST API Express.
+- **Pinia** digunakan sebagai state management untuk auth, berita, dan kategori.
+- **Nuxt pages** menangani routing halaman publik dan dashboard admin.
+- **Nuxt components** berisi komponen reusable seperti navbar, footer, card, form, pagination, dan toast.
+- **Iconify melalui `@nuxt/icon`** digunakan untuk icon tombol dan navigasi.
+
+Navbar menggunakan model floating pada desktop dan hamburger menu pada mobile. Seluruh layout publik, dashboard, form, card, gambar, dan footer dibuat responsive untuk desktop maupun mobile.
+
+## Developer
+
+**Aiman Wafi'i An Nawal**  
+Divisi Webmaster  
+Teknik Informatika

@@ -22,16 +22,7 @@
 				<a href="#">Facebook</a>
 				<a href="#">Twitter</a>
 			</div>
-			<button class="back-to-top" type="button" aria-label="Kembali ke atas" @click="scrollToTop">
-				<Icon name="heroicons:arrow-up" />
-			</button>
 			<div class="footer-copyright">© {{ new Date().getFullYear() }} BeritaSurabaya. Semua hak dilindungi.</div>
 		</div>
 	</footer>
 </template>
-
-<script setup lang="ts">
-function scrollToTop() {
-	window.scrollTo({ top: 0, behavior: 'smooth' })
-}
-</script>
