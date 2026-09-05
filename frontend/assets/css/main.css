@@ -67,9 +67,15 @@ button { cursor: pointer; }
 .hero { padding-top: 156px; }
 .site-shell main > .section:first-child { padding-top: 126px; }
 .site-shell main > .form-page:first-child { padding-top: 126px; }
+@media (min-width: 761px) { .nav-links { margin-right: 12px; } }
+.login-page { max-width: 680px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 96px; padding-bottom: 64px; }
+.login-page h1 { margin: 10px 0 28px; }
+.login-page .form { padding: 34px; }
 @media (max-width: 760px) {
 	.site-header { height: 0; }
 	.hero { padding-top: 104px; }
 	.site-shell main > .section:first-child { padding-top: 104px; }
 	.site-shell main > .form-page:first-child { padding-top: 104px; }
+	.login-page { padding-top: 112px; padding-bottom: 64px; }
+	.login-page .form { padding: 24px; }
 }
