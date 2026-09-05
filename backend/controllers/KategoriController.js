@@ -15,4 +15,14 @@ export async function update(req, res) {
   if (!item) return res.status(404).json({ success: false, message: 'Kategori tidak ditemukan' })
   res.json({ success: true, data: item })
 }
-export async function remove(req, res) { res.json({ success: true, data: await Kategori.remove(req.params.id) }) }
+export async function remove(req, res) {
+  const beritaCount = await Kategori.countBerita(req.params.id)
+  if (beritaCount > 0) {
+    return res.status(409).json({
+      success: false,
+      message: `Kategori masih digunakan oleh ${beritaCount} berita`,
+      data: { beritaCount }
+    })
+  }
+  res.json({ success: true, data: await Kategori.remove(req.params.id) })
+}

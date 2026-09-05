@@ -1,4 +1,20 @@
-<template><section class="section container"><div class="eyebrow">Jelajah kabar Surabaya</div><h1 class="page-title">Semua berita</h1><p class="muted page-intro">Cari laporan, cerita warga, dan kabar terbaru dari berbagai kategori.</p><div class="search-panel"><input v-model="search" placeholder="Cari judul berita..."><select v-model="kategoriId"><option value="">Semua kategori</option><option v-for="item in kategori.list" :key="item.id" :value="item.id">{{ item.nama }}</option></select><button class="btn btn-primary" @click="load">Cari</button></div><div v-if="!store.loading && store.list.length" class="grid news-grid"><BeritaCard v-for="item in store.list" :key="item.id" :berita="item" /></div><div v-else class="empty">{{ store.loading ? 'Memuat berita...' : 'Belum ada berita yang sesuai.' }}</div><UiPagination :current="store.pagination.page" :total-pages="store.pagination.totalPages" @change="load" /></section></template>
+<template>
+    <section class="section container">
+        <div class="eyebrow">Jelajah kabar Surabaya</div>
+        <h1 class="page-title">Semua berita</h1>
+        <p class="muted page-intro">Cari laporan, cerita warga, dan kabar terbaru dari berbagai kategori.</p>
+        <div class="search-panel"><input v-model="search" placeholder="Cari judul berita..."><select
+                v-model="kategoriId">
+                <option value="">Semua kategori</option>
+                <option v-for="item in kategori.list" :key="item.id" :value="item.id">{{ item.nama }}</option>
+            </select><button class="btn btn-primary" @click="load">Cari</button></div>
+        <div v-if="!store.loading && store.list.length" class="grid news-grid">
+            <BeritaCard v-for="item in store.list" :key="item.id" :berita="item" />
+        </div>
+        <div v-else class="empty">{{ store.loading ? 'Memuat berita...' : 'Belum ada berita yang sesuai.' }}</div>
+        <UiPagination :current="store.pagination.page" :total-pages="store.pagination.totalPages" @change="load" />
+    </section>
+</template>
 <script setup lang="ts">
 const store = useBeritaStore(); const kategori = useKategoriStore(); const search = ref(''); const kategoriId = ref(''); let timer: ReturnType<typeof setTimeout>; await Promise.all([kategori.fetchAll(), store.fetchAll()]); async function load(page = 1) { await store.fetchAll({ search: search.value, kategori: kategoriId.value, page }) } watch([search, kategoriId], () => { clearTimeout(timer); timer = setTimeout(() => load(), 350) })
 </script>

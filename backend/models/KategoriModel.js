@@ -20,6 +20,11 @@ export const update = async (id, { nama, slug }) => {
   return getById(id)
 }
 
+export const countBerita = async (id) => {
+  const [rows] = await pool.execute('SELECT COUNT(*) AS total FROM berita WHERE kategori_id = ?', [id])
+  return Number(rows[0].total)
+}
+
 export const remove = async (id) => {
   const [result] = await pool.execute('DELETE FROM kategori WHERE id = ?', [id])
   return result.affectedRows > 0
